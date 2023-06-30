@@ -1,20 +1,19 @@
 import React from 'react'
 import studygroup from './Images/studygroup.png'
 
-import '../Styles/Aboutus.css'
+
 
 const Aboutus = () => {
     return (
-        <div className='about' id='about'>
-            <div className='container'>
-                <img src={studygroup} alt='' />
-                <div className='col-2'>
-                    <h2>About Us</h2>
-                    <span className='line'></span>
+        <div className='w-full bg-white py-16 px-4' id='about'>
+            <div className='max-w-[1240px] mx-auto grid lg:grid-cols-2'>
+                <img src={studygroup} alt='' className='w-[500px] mx-auto my-8'/>
+                <div className='flex flex-col justify-center'>
+                    <p className='text-[#2380dd] font-bold'>OUR MISSION</p>
+                    <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2'>Understand what what we do and why</h1>
                     <p>This AI tool designed to become aware of each student's unique interests, goals, and career aspirations. By leveraging machine learning algorithms and natural language processing, 
                       it can provide personalized guidance and mentorship that is tailored to each student's needs.</p>
-                    <p>Helping the next generation of students find the best career path.</p>
-                    <button className='button'>Explore More</button>
+                    <a className='bg-[#2380dd] w-[200px] rounded-lg font-bold my-6 mx-auto md:mx-0 py-4 text-white text-center' href='/demo'>Explore More</a>
                 </div>
             </div>
         </div>

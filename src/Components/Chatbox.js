@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
-import '../App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css'
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react'
 
  
-const API_KEY = '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' 
+const API_KEY = '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' 
 
 const systemMessage = {
   role: 'system',
@@ -96,11 +95,11 @@ const Chatbox = () => {
   }
 
 
- 
+  
  
   return (
-    <div className='box-container'>
-      <div style={{position: 'relative', height: '600px', width: '700px', margin: '300px'}}>
+    <div className=''>
+      <div className='absolute h-full w-full py-2 mx-auto'>
         <MainContainer>
           <ChatContainer>
             <MessageList
