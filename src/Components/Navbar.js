@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import Logo from '../Components/Images/logo.png'
+
 
 const Navbar = () => {
 
