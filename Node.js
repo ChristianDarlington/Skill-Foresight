@@ -1,4 +1,5 @@
 const express = require('express');
+const rateLimit = require('express-rate-limit');
 const axios = require('axios');
 const app = express();
 const port = 4000;
@@ -11,6 +12,8 @@ app.use(express.json());
 
 // Serve static files from the 'build' directory (assuming you have a build folder for the React frontend)
 app.use(express.static('build'));
+
+
 
 app.use(cors())
 
@@ -62,6 +65,18 @@ app.post('/api/chat', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+const limits = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 10,
+  handler: (req, res) => {
+    res.status(429).json({
+      error: 'Too many requests, please try again later.',
+    });
+  },
+});
+
+app.use(limits);
 
 // Start the server
 app.listen(port, () => {
