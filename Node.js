@@ -68,7 +68,7 @@ app.post('/api/chat', async (req, res) => {
 
 const limits = rateLimit({
   windowMs: 60 * 60 * 1000,
-  max: 10,
+  max: 30,
   handler: (req, res) => {
     res.status(429).json({
       error: 'Too many requests, please try again later.',
