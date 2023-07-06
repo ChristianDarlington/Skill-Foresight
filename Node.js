@@ -6,6 +6,7 @@ const port = 4000;
 require('dotenv').config();
 const cors = require('cors');
 
+const path = require('path');
 
 // Middleware to parse JSON request body
 app.use(express.json());
@@ -18,6 +19,7 @@ app.use(express.static('build'));
 app.use(cors())
 
 const API_KEY = process.env.API_KEY;
+
 
 
 // API endpoint to process chat messages
@@ -64,6 +66,11 @@ app.post('/api/chat', async (req, res) => {
     console.error('Error processing message:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
+});
+
+app.get('/demo', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+
 });
 
 const limits = rateLimit({

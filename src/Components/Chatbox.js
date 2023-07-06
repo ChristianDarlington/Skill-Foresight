@@ -72,12 +72,11 @@ const Chatbox = () => {
   };
 
   return (
-    <div className='overflow-y-hidden'>
+    <div className='w-full h-[100px] object-cover'>
       <div className='absolute h-[920px] w-full py-2 mx-auto'>
         <MainContainer>
           <ChatContainer>
             <MessageList
-              scrollBehavior='smooth'
               typingIndicator={typing ? <TypingIndicator content='Career Finder is typing' /> : null}
             >
               {messages.map((message, i) => {
