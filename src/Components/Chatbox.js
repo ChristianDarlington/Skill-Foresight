@@ -72,8 +72,8 @@ const Chatbox = () => {
   };
 
   return (
-    <div className='w-full h-[100px] object-cover'>
-      <div className='absolute h-[920px] w-full py-2 mx-auto'>
+    <div className=' object-contain  overflow-y-scroll'>
+      <div className='absolute  w-full py-2 h-[740px] '>
         <MainContainer>
           <ChatContainer>
             <MessageList

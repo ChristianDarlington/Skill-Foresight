@@ -70,7 +70,6 @@ app.post('/api/chat', async (req, res) => {
 
 app.get('/demo', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-
 });
 
 const limits = rateLimit({
