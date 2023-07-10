@@ -12,7 +12,7 @@ const Navbar = () => {
     const closeMenu = () => setClick(false)
 
     return (
-        <div className='flex justify-between items-center max-w-[1600px] mx-auto px-4 text-white h-24 bg-black'>    
+        <div className='flex justify-between items-center max-w-full mx-auto px-4 text-white h-24 bg-black'>    
                 <a href='/' className='text-[#2380dd] font-bold w-full text-3xl'>
                     FORESIGHT.
                 </a>

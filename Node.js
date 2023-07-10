@@ -15,16 +15,18 @@ app.use(express.json());
 app.use(express.static('build'));
 
 
-
-app.use(cors())
-
 const API_KEY = process.env.API_KEY;
 
 
 
+app.use(cors())
+
 // API endpoint to process chat messages
 app.post('/api/chat', async (req, res) => {
   const { messages } = req.body;
+  console.log('Received request at /api/chat');
+  console.log('Request payload:', req.body);
+
 
   const systemMessage = {
     role: 'system',
@@ -42,6 +44,7 @@ app.post('/api/chat', async (req, res) => {
     ],
   };
 
+  
   try {
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
@@ -71,6 +74,15 @@ app.post('/api/chat', async (req, res) => {
 app.get('/demo', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+
+
+app.get(`/api/chat`, (req, res) => {
+  res.status(405).json({ error: 'Method Not Allowed' });
+});
+
+
+
 
 const limits = rateLimit({
   windowMs: 60 * 60 * 1000,
