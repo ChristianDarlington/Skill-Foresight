@@ -3,8 +3,20 @@ command = "npm run build"
 publish="/build'
 base = "/"
 
+# netlify.toml
+
 [[redirects]]
-  force = true
-  from = "/api/*"
-  status = 200
-  to = "/.netlify/functions/api/:splat"
+  from = "/old-page"
+  to = "/new-page"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/about-us"
+  status = 302
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    X-Frame-Options = "DENY"
+
