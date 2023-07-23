@@ -32,8 +32,13 @@ const Chatbox = () => {
     sendMessagesToBackend(newMessages);
   };
 
+  let serverDomain = "http://localhost:4000";
+if(process.env.NODE_ENV === "production") {
+  serverDomain = "https://moonlit-praline-1cc497.netlify.app"
+}
+
   const sendMessagesToBackend = (messages) => {
-    fetch('http://localhost:4000/api/chat', {
+    fetch(`${serverDomain}/api/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
